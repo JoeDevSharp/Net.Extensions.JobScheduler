@@ -23,6 +23,46 @@ namespace Net.Extensions.JobScheduler.Builders
         }
 
         /// <summary>
+        /// Define un intervalo recurrente en horas.
+        /// </summary>
+        public static JobBuilder EveryHours(this JobBuilder builder, int hours)
+        {
+            return builder.RecurringEvery(TimeSpan.FromHours(hours));
+        }
+
+        /// <summary>
+        /// Define un intervalo recurrente en días.
+        /// </summary>
+        public static JobBuilder EveryDays(this JobBuilder builder, int days)
+        {
+            return builder.RecurringEvery(TimeSpan.FromDays(days));
+        }
+
+        /// <summary>
+        /// Define un intervalo recurrente en semanas.
+        /// </summary>
+        public static JobBuilder EveryWeeks(this JobBuilder builder, int weeks)
+        {
+            return builder.RecurringEvery(TimeSpan.FromDays(7 * weeks));
+        }
+
+        /// <summary>
+        /// Define un intervalo recurrente en meses (aproximado a 30 días por mes).
+        /// </summary>
+        public static JobBuilder EveryMonths(this JobBuilder builder, int months)
+        {
+            return builder.RecurringEvery(TimeSpan.FromDays(30 * months));
+        }
+
+        /// <summary>
+        /// Define un intervalo recurrente en años (aproximado a 365 días por año).
+        /// </summary>
+        public static JobBuilder EveryYears(this JobBuilder builder, int years)
+        {
+            return builder.RecurringEvery(TimeSpan.FromDays(365 * years));
+        }
+
+        /// <summary>
         /// Añade una política de reintento simple.
         /// </summary>
         public static JobBuilder WithSimpleRetry(this JobBuilder builder, int maxAttempts = 3, TimeSpan? delay = null)

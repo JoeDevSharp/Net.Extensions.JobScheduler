@@ -56,6 +56,35 @@ Predefined job types like:
 
 You can extend and create your own job types based on `IJob`.
 
+---
+
+## ⏰ Scheduling Intervals and Calendar Considerations
+
+This framework provides convenient extension methods to specify recurring job intervals:
+
+- `EverySeconds(int seconds)`
+- `EveryMinutes(int minutes)`
+- `EveryHours(int hours)`
+- `EveryDays(int days)`
+- `EveryWeeks(int weeks)`
+- `EveryMonths(int months)` (approximate)
+- `EveryYears(int years)` (approximate)
+
+**Important:**
+
+For `EveryMonths` and `EveryYears`, the scheduling uses a fixed `TimeSpan` approximation:
+
+- Months are treated as **30 days** each.
+- Years are treated as **365 days** each.
+
+This means the actual calendar variation (months of 28-31 days, leap years) is **not** accounted for.
+
+`TimeSpan` represents a fixed duration and does not natively support calendar-aware intervals. Therefore, using these methods schedules jobs at approximately these intervals, which is usually acceptable for many scenarios but **not suitable** when precise calendar dates/times are critical (e.g., running on the 1st day of each month).
+
+If your use case requires precise calendar scheduling — accounting for variable month lengths or leap years — a different scheduling logic must be implemented, such as calculating the next run date explicitly using calendar-aware APIs (e.g., `DateTime.AddMonths()`, `DateTime.AddYears()`).
+
+---
+
 ### 4. Builders
 
 Fluent API classes and extension methods to build and configure jobs cleanly, for example:
