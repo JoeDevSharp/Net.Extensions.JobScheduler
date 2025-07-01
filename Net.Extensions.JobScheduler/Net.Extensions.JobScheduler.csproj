@@ -4,7 +4,30 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>JoeDevSharp.$(AssemblyName)</PackageId>
+    <Title>JoeDevSharp.$(AssemblyName)</Title>
+    <Version>1.0.0</Version>
+    <Authors>JoeDevSharp</Authors>
+    <Product>JoeDevSharp.$(AssemblyName)</Product>
+    <Description>Net.Extensions.JobScheduler is a lightweight yet powerful framework for scheduling and executing background jobs in .NET applications. It was designed to be simple, extensible, and fully compatible with modern .NET idioms like Dependency Injection (DI) and the Generic Host (IHost). The framework supports both recurring and one-time jobs, with flexible execution policies such as retry and timeout, and a modular architecture that allows custom extensions for job storage, policies, and execution logic.</Description>
+    <PackageProjectUrl>https://github.com/JoeDevSharp</PackageProjectUrl>
+    <PackageIcon>JoeDevSharp.Net.Extensions.icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/JoeDevSharp/Net.Extensions.JobScheduler</RepositoryUrl>
+    <PackageTags>job scheduler; background tasks; task scheduling; .net; .net core; dependency injection; retry policy; timeout policy; recurring jobs; one-time jobs; fluent api; batch processing; microservices; legacy system modernization; async jobs; in-memory storage; extensible framework; background processing; industrial software; net extensions</PackageTags>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\iCloudDrive\JoeDev\Logos\JoeDevSharp.Net.Extensions.icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.6" />
